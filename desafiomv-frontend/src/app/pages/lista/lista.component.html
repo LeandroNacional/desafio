@@ -1,0 +1,23 @@
+<app-header backLink="/" />
+
+<div class="lista-cafes">
+  <h2>Cafés Criados</h2>
+  <div *ngIf="loading" class="loading">Carregando...</div>
+  <div *ngIf="erro" class="erro">{{ erro }}</div>
+  <div *ngIf="!loading && cafes.length === 0" class="vazio">
+    Nenhum café cadastrado ainda.
+  </div>
+  <div class="cafes-container">
+    <div
+      class="cafe-card"
+      *ngFor="let cafe of cafes"
+      (click)="irParaDetalhe(cafe)"
+      tabindex="0"
+      role="button"
+      aria-label="Ver detalhes do café"
+    >
+      <div class="cafe-nome">{{ cafe.nome }}</div>
+      <div class="cafe-data">{{ cafe.data | date : "dd/MM/yyyy" }}</div>
+    </div>
+  </div>
+</div>

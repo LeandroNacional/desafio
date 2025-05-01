@@ -1,0 +1,42 @@
+// Exemplo: sombra extra no card
+:host ::ng-deep .shadow-lg {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+// src/app/pages/home/home.component.scss
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 2rem;
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.card-btn.secondary {
+  background: #f1f5f9;
+  color: #2563eb;
+}
+.card-btn:hover {
+  color: #fff;
+  background: #1d4ed8;
+}

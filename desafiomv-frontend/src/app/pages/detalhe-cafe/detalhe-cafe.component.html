@@ -1,0 +1,60 @@
+<app-header backLink="/lista" />
+
+<div class="detalhe-cafe" *ngIf="cafe">
+  <h2>{{ cafe.nome }}</h2>
+  <div class="cafe-data">Data: {{ cafe.data | date : "dd/MM/yyyy" }}</div>
+  <h3>Participantes</h3>
+  <div *ngIf="participantes.length === 0" class="vazio">
+    Nenhum participante cadastrado ainda.
+  </div>
+  <div class="participantes-container">
+    <div class="participante-card" *ngFor="let participante of participantes">
+      <div class="participante-nome">{{ participante.nome }}</div>
+      <div class="participante-cpf">CPF: {{ participante.cpf }}</div>
+      <ul>
+        <li *ngFor="let opcao of participante.opcoes; let i = index">
+          <span class="opcao-nome">{{ opcao.nome }}</span>
+          <span class="opcao-status" 
+                [ngClass]="{'trouxe': opcao.status === 'TROUXE', 'nao-trouxe': opcao.status === 'NAO_TROUXE'}">
+            {{ opcao.status === 'TROUXE' ? 'Trouxe' : 'Não trouxe' }}
+          </span>
+          <button *ngIf="opcao.status === 'NAO_TROUXE'" 
+                  (click)="marcarComoTrouxe(participante, i)" class="btn-marcar">
+            Marcar como Trouxe
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="btn-cadastrar" (click)="mostrarFormulario = !mostrarFormulario">
+    {{ mostrarFormulario ? 'Fechar formulário' : 'Cadastrar participação' }}
+  </button>
+
+  <div *ngIf="mostrarFormulario" class="participacao-card">
+    <h3>Cadastrar participação</h3>
+    <form [formGroup]="participacaoForm" (ngSubmit)="onParticipar()">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input id="nome" formControlName="nome" placeholder="Nome do colaborador" required>
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input id="cpf" formControlName="cpf" placeholder="CPF (somente números)" required maxlength="11">
+      </div>
+      <div class="form-group opcoes-group" formArrayName="opcoes">
+        <label>O que vai trazer?</label>
+        <div *ngFor="let opcaoCtrl of opcoes.controls; let i = index" class="opcao-item">
+          <input [formControlName]="i" placeholder="Opção para trazer" required>
+          <button type="button" (click)="removeOpcao(i)" *ngIf="opcoes.length > 1" class="btn-remove">Remover</button>
+        </div>
+        <button type="button" (click)="addOpcao()" class="btn-add">Adicionar opção</button>
+      </div>
+      <button type="submit" class="btn-submit">Participar</button>
+    </form>
+    <div *ngIf="participacaoErro" class="erro">{{ participacaoErro }}</div>
+    <div *ngIf="participacaoSucesso" class="sucesso">Participação cadastrada!</div>
+  </div>
+</div>
+<div *ngIf="!cafe && !loading" class="erro">Café não encontrado.</div>
+<div *ngIf="erro" class="erro">{{ erro }}</div>

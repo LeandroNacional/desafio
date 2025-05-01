@@ -1,0 +1,35 @@
+<app-header backLink="/" />
+<div class="cadastro-card">
+  <h2>Criar Café da Manhã</h2>
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nome">Nome do café:</label>
+      <input id="nome" formControlName="nome" placeholder="Ex: Café de Sexta" />
+      <div
+        class="erro"
+        *ngIf="
+          cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched
+        "
+      >
+        Nome é obrigatório.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="data">Data:</label>
+      <input id="data" type="date" formControlName="data" />
+      <div
+        class="erro"
+        *ngIf="
+          cadastroForm.get('data')?.invalid && cadastroForm.get('data')?.touched
+        "
+      >
+        Data é obrigatória.
+      </div>
+    </div>
+    <button type="submit">Cadastrar</button>
+    <div class="sucesso" *ngIf="sucesso">
+      Café da manhã cadastrado com sucesso!
+    </div>
+    <div class="erro" *ngIf="erro">{{ erro }}</div>
+  </form>
+</div>

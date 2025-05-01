@@ -1,0 +1,50 @@
+.lista-cafes {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #22223b;
+  }
+  .loading,
+  .erro,
+  .vazio {
+    text-align: center;
+    margin: 2rem 0;
+    color: #888;
+  }
+  .cafes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .cafe-card {
+    background: #fff;
+    border-radius: 0.8rem;
+    box-shadow: 0 2px 8px rgba(31, 38, 135, 0.07);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.2s, border 0.2s;
+    outline: none;
+    &:hover,
+    &:focus {
+      box-shadow: 0 4px 16px rgba(31, 38, 135, 0.13);
+      border-color: #2563eb;
+    }
+    .cafe-nome {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #22223b;
+    }
+    .cafe-data {
+      font-size: 1rem;
+      color: #2563eb;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.header {
+  width: 100%;
+  background: #f8fafc;
+  padding: 0.7rem 0.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(31, 38, 135, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    color: #22223b;
+    text-decoration: none;
+    font-size: 1.7rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+    &:hover {
+      background: #e2e8f0;
+    }
+    .arrow {
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+  }
+}

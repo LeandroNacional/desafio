@@ -1,0 +1,73 @@
+.cadastro-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+
+  h2 {
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      outline: none;
+      transition: border 0.2s;
+      &:focus {
+        border-color: #2563eb;
+      }
+    }
+    .erro {
+      color: #dc2626;
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 0.9rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+    &:hover {
+      background: #1d4ed8;
+    }
+  }
+
+  .sucesso {
+    color: #16a34a;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  .erro {
+    color: #dc2626;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+}
