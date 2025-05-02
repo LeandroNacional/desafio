@@ -1,14 +1,18 @@
-# Use uma imagem oficial do Java como base
-FROM openjdk:17-jdk-slim
+FROM maven:3.9.4-eclipse-temurin-17 AS builder
 
-# Diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia o arquivo jar gerado pelo build do Maven
-COPY target/backend-0.0.1-SNAPSHOT.jar app.jar
+COPY . .
 
-# Expõe a porta padrão do Spring Boot
+RUN mvn clean package -DskipTests
+
+# Etapa 2: usar só o JDK mais leve para rodar o app
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY --from=builder /app/target/backend-0.0.1-SNAPSHOT.jar app.jar
+
 EXPOSE 8080
 
-# Comando para rodar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
