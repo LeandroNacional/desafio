@@ -20,4 +20,4 @@ COPY --from=build /app/dist/frontend/browser /usr/share/nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Expondo a porta 80 para o frontend
-EXPOSE 80
+EXPOSE 8080
