@@ -5,7 +5,7 @@ import { Opcao } from '../models/opcao.model';
 
 @Injectable({ providedIn: 'root' })
 export class OpcaoService {
-  private apiUrl = 'desafio-production.up.railway.app/api/opcoes';
+  private apiUrl = 'https://desafio-production.up.railway.app/api/opcoes';
 
   constructor(private http: HttpClient) {}
 
