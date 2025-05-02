@@ -5,7 +5,7 @@ import { Colaborador } from '../models/colaborador.model';
 
 @Injectable({ providedIn: 'root' })
 export class ColaboradorService {
-  private apiUrl = 'http://localhost:8080/api/colaboradores';
+  private apiUrl = 'desafio-production.up.railway.app/api/colaboradores';
 
   constructor(private http: HttpClient) {}
 
