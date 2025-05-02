@@ -5,7 +5,7 @@ import { CafeDaManha } from '../models/cafe-da-manha.model';
 
 @Injectable({ providedIn: 'root' })
 export class CafeDaManhaService {
-  private apiUrl = 'desafio-production.up.railway.app/api/cafes';
+  private apiUrl = 'https://desafio-production.up.railway.app/api/cafes';
 
   constructor(private http: HttpClient) {}
 
